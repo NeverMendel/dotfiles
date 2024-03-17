@@ -13,6 +13,8 @@
         branch = auto
         ui = true
 [help]
-        autocorrect = 1
+        autocorrect = 0
 [push]
         default = simple
+[init]
+	defaultBranch = master
