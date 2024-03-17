@@ -129,6 +129,8 @@ install_dotfiles () {
   done
 }
 
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 set_zsh_as_default_shell
 install_dotfiles
 
