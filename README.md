@@ -4,8 +4,8 @@
 
 ```bash
 git clone https://github.com/NeverMendel/dotfiles ~/.dotfiles
-./script/install
-./script/bootstrap
+$HOME/.dotfiles/script/install
+$HOME/.dotfiles/script/bootstrap
 ```
 
 ## Thanks
