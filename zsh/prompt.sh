@@ -1,77 +1,28 @@
-# autoload colors && colors
-# # cheers, @ehrenmurdick
-# # http://github.com/ehrenmurdick/config/blob/master/zsh/prompt.zsh
+autoload -Uz vcs_info
 
-# if (( $+commands[git] ))
-# then
-#   git="$commands[git]"
-# else
-#   git="/usr/bin/git"
-# fi
+zstyle ':vcs_info:git:*' formats '%b '
 
-# git_branch() {
-#   echo $($git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
-# }
+PROMPT='%F{cyan}%n%f@%m %F{cyan}%~%f %F{red}${vcs_info_msg_0_}%f$ '
 
-# git_dirty() {
-#   if $(! $git status -s &> /dev/null)
-#   then
-#     echo ""
-#   else
-#     if [[ $($git status --porcelain) == "" ]]
-#     then
-#       echo "on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
-#     else
-#       echo "on %{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
-#     fi
-#   fi
-# }
+function preexec() {
+  timer=$(($(date +%s%0N)/1000000))
+}
 
-# git_prompt_info () {
-#  ref=$($git symbolic-ref HEAD 2>/dev/null) || return
-# # echo "(%{\e[0;33m%}${ref#refs/heads/}%{\e[0m%})"
-#  echo "${ref#refs/heads/}"
-# }
+function precmd() {
+  vcs_info
+  title "zsh" "%m" "%55<...<%~"
+  if [ $timer ]; then
+    now=$(($(date +%s%0N)/1000000))
+    elapsed=$(($now-$timer))
 
-# # This assumes that you always have an origin named `origin`, and that you only
-# # care about one specific origin. If this is not the case, you might want to use
-# # `$git cherry -v @{upstream}` instead.
-# need_push () {
-#   if [ $($git rev-parse --is-inside-work-tree 2>/dev/null) ]
-#   then
-#     number=$($git cherry -v origin/$(git symbolic-ref --short HEAD) 2>/dev/null | wc -l | bc)
+    if [ $elapsed -ge 1000 ]; then
+      elapsed=$((elapsed/1000)) # Convert milliseconds to seconds if greater than or equal to 1000
+      unit="s"
+    else
+      unit="ms"
+    fi
 
-#     if [[ $number == 0 ]]
-#     then
-#       echo " "
-#     else
-#       echo " with %{$fg_bold[magenta]%}$number unpushed%{$reset_color%}"
-#     fi
-#   fi
-# }
-
-# directory_name() {
-#   echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
-# }
-
-# battery_status() {
-#   if test ! "$(uname)" = "Darwin"
-#   then
-#     exit 0
-#   fi
-
-#   if [[ $(sysctl -n hw.model) == *"Book"* ]]
-#   then
-#     $ZSH/bin/battery-status
-#   fi
-# }
-
-# export PROMPT=$'\n$(battery_status)in $(directory_name) $(git_dirty)$(need_push)\n› '
-# set_prompt () {
-#   export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
-# }
-
-# precmd() {
-#   title "zsh" "%m" "%55<...<%~"
-#   set_prompt
-# }
+    export RPROMPT="%F{cyan}${elapsed}${unit} %{$reset_color%}"
+    unset timer
+  fi
+}

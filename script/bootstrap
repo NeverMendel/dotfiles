@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-#
-# bootstrap installs things.
 
 cd "$(dirname "$0")/.."
 DOTFILES_ROOT=$(pwd -P)
@@ -8,15 +6,6 @@ DOTFILES_ROOT=$(pwd -P)
 set -e
 
 echo ''
-
-# Set ZSH as the default shell
-echo 'Setting ZSH as the default shell'
-export SHELL=$(which zsh)
-if ! grep -Fq "$SHELL" /etc/shells; then
-  echo "Adding $SHELL to /etc/shells"
-  echo $SHELL | sudo tee -a /etc/shells
-fi
-chsh -s $(which zsh)
 
 info () {
   printf "\r  [ \033[00;34m..\033[0m ] $1\n"
@@ -36,6 +25,22 @@ fail () {
   exit
 }
 
+set_zsh_as_default_shell () {
+  echo -n 'Do you want to set ZSH as the default shell? Root access is required. (y/n) '
+  read -n 1 action
+  echo ''
+  if [[ $action != "y" && $action != "Y" ]]; then
+    return
+  fi
+  # Set ZSH as the default shell
+  echo 'Setting ZSH as the default shell'
+  export SHELL=$(which zsh)
+  if ! grep -Fq "$SHELL" /etc/shells; then
+    echo "Adding $SHELL to /etc/shells"
+    echo $SHELL | sudo tee -a /etc/shells
+  fi
+  chsh -s $(which zsh)
+}
 
 link_file () {
   local src=$1 dst=$2
@@ -124,6 +129,7 @@ install_dotfiles () {
   done
 }
 
+set_zsh_as_default_shell
 install_dotfiles
 
 echo ''

@@ -1,0 +1,8 @@
+*.sh        eol=lf
+*.symlink   eol=lf
+*.json      eol=lf
+bootstrap   eol=lf
+install     eol=lf
+Breawfile   eol=lf
+*.md        eol=crlf
+LICENSE     eol=crlf
