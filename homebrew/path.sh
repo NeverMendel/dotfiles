@@ -1,1 +1,3 @@
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+if test -f /home/linuxbrew/.linuxbrew/bin/brew; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
