@@ -1,0 +1,17 @@
+name: Check Code Formatting
+
+on: [push, pull_request]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v4
+      - name: Install shfmt
+        run: |
+          go install mvdan.cc/sh/v3/cmd/shfmt@latest
+          echo $(go env GOPATH)/bin >> $GITHUB_PATH
+      - name: Check code formatting
+        run: shfmt -d */*.sh script/bootstrap script/install
