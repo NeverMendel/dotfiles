@@ -11,7 +11,7 @@ SAVEHIST=10000
 
 setopt NO_BG_NICE # don't be nice background tasks
 setopt NO_HUP
-setopt NO_LIST_BEEP
+setopt NO_BEEP       # disable all beeps
 setopt LOCAL_OPTIONS # allow functions to have local options
 setopt LOCAL_TRAPS   # allow functions to have local traps
 setopt HIST_VERIFY
@@ -25,14 +25,3 @@ setopt INC_APPEND_HISTORY SHARE_HISTORY # adds history incrementally and share i
 setopt HIST_IGNORE_ALL_DUPS             # don't record dupes in history
 setopt HIST_IGNORE_SPACE                # don't record entries starting with a space
 setopt HIST_REDUCE_BLANKS
-
-bindkey '^[^[[D' backward-word
-bindkey '^[^[[C' forward-word
-bindkey '^[[5D' beginning-of-line
-bindkey '^[[5C' end-of-line
-bindkey '^[[3~' delete-char
-bindkey '^?' backward-delete-char
-
-# control + left/right arrow keys
-bindkey ';5D' backward-word
-bindkey ';5C' forward-word
