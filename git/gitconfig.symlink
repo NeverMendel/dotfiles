@@ -16,5 +16,6 @@
         autocorrect = 0
 [push]
         default = simple
+        autoSetupRemote = true
 [init]
 	defaultBranch = master
