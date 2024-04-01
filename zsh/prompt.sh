@@ -11,7 +11,7 @@ function preexec() {
 
 function precmd() {
 	vcs_info
-	title "zsh" "%m" "%55<...<%~"
+	title "zsh" "%m" "%40<...<%~"
 	if [[ -n $timer ]]; then
 		now=$(($(date +%s%0N) / 1000000))
 		elapsed=$(($now - $timer))

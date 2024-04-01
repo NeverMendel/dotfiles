@@ -1,3 +1,3 @@
 if test $(which opam); then
-    eval $(opam env)
+	eval $(opam env)
 fi

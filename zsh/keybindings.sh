@@ -13,3 +13,6 @@ bindkey '^[[3;5~' kill-word
 # home/end keys
 bindkey '^[[H' beginning-of-line
 bindkey '^[[F' end-of-line
+
+# delete key
+bindkey '^[[3~' delete-char
