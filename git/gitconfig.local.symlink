@@ -1,3 +1,5 @@
 [user]
         name = Davide Cazzin
         email = 28535750+NeverMendel@users.noreply.github.com
+[core]
+        sshCommand = "ssh -i ~/.ssh/id_ed25519"

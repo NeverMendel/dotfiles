@@ -1,7 +1,7 @@
 [include]
         path = ~/.gitconfig.local
 [hub]
-        protocol = https
+        protocol = ssh
 [alias]
         amend = commit --amend --no-edit
         st = status
