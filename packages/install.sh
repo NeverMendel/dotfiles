@@ -12,7 +12,7 @@ packages=(
 	'htop'
 	'neovim'
 	'python3'
-  'python3-venv'
+	'python3-venv'
 	'python-is-python3'
 	'tmux'
 	'wget'
@@ -35,8 +35,8 @@ done
 
 # download fzf from github to get a more up to date version
 if ! command -v fzf &>/dev/null; then
-  wget "https://github.com/junegunn/fzf/releases/download/${FZF_VERSION}/fzf-${FZF_VERSION}-${OS}_${ARCH}.tar.gz" -O /tmp/fzf.tar.gz
-  tar -xzf /tmp/fzf.tar.gz -C /tmp
-  sudo mv /tmp/fzf /usr/bin/fzf
-  rm /tmp/fzf.tar.gz
+	wget "https://github.com/junegunn/fzf/releases/download/${FZF_VERSION}/fzf-${FZF_VERSION}-${OS}_${ARCH}.tar.gz" -O /tmp/fzf.tar.gz
+	tar -xzf /tmp/fzf.tar.gz -C /tmp
+	sudo mv /tmp/fzf /usr/bin/fzf
+	rm /tmp/fzf.tar.gz
 fi
