@@ -12,6 +12,7 @@ packages=(
 	'htop'
 	'neovim'
 	'python3'
+  'python3-venv'
 	'python-is-python3'
 	'tmux'
 	'wget'

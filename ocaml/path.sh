@@ -1,5 +1,5 @@
 #!/bin/bash
 
-if test $(which opam); then
+if command -v opam; then
 	eval $(opam env)
 fi
