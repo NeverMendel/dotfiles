@@ -11,7 +11,7 @@ fi
 
 # all of our sh files
 typeset -U config_files
-config_files=($DOTFILES/**/*.sh)
+config_files=($DOTFILES/*/*.sh)
 
 # load the path files
 for file in ${(M)config_files:#*/path.sh}

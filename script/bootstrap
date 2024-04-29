@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 cd "$(dirname "$0")/.."
 DOTFILES_ROOT=$(pwd -P)
@@ -49,7 +49,7 @@ set_zsh_as_default_shell() {
 		echo "Adding $SHELL to /etc/shells"
 		echo $SHELL | sudo tee -a /etc/shells
 	fi
-	chsh -s $(which zsh)
+	chsh -s $SHELL
 }
 
 link_file() {
@@ -135,8 +135,6 @@ install_dotfiles() {
 		link_file "$src" "$dst"
 	done
 }
-
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 set_zsh_as_default_shell
 install_dotfiles

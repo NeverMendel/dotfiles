@@ -1,3 +1,5 @@
+#!/bin/bash
+
 alias dc='docker-compose'
 alias dcr='docker-compose run'
 alias dcb='docker-compose build'

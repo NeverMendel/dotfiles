@@ -1,6 +1,13 @@
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+plugin_folder=~/.zsh_plugin/
+
+if [ ! -d $plugin_folder ]; then
+	return
+fi
+
+for plugin in $plugin_folder/*; do
+	plugin_name=$(basename $plugin)
+	source $plugin/$plugin_name.zsh
+done
 
 # zsh-history-substring-search
 bindkey '^[[A' history-substring-search-up
