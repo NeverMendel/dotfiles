@@ -3,6 +3,4 @@
 # Usage: pwdw
 # Description: Displays the current path in Windows format
 
-pwdw() {
-  wslpath -w "$(pwd)"
-}
+wslpath -w "$(pwd)"

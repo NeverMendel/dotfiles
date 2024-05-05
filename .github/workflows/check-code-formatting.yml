@@ -14,4 +14,4 @@ jobs:
           go install mvdan.cc/sh/v3/cmd/shfmt@latest
           echo $(go env GOPATH)/bin >> $GITHUB_PATH
       - name: Check code formatting
-        run: shfmt -d */*.sh script/bootstrap script/install
+        run: shfmt -d */*.sh script/bootstrap script/install bin/*

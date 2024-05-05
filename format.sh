@@ -1,3 +1,3 @@
 #!/bin/bash
 
-shfmt -w */*.sh script/bootstrap script/install
+shfmt -w */*.sh script/bootstrap script/install bin/*
