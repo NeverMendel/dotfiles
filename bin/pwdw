@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Usage: pwdw
 # Description: Displays the current path in Windows format

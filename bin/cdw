@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Usage: cdw <windows_path>
 # Description: Change directory using Windows path
