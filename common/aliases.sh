@@ -26,7 +26,7 @@ alias .....="cd ../../../.."
 alias cls='clear'
 
 # IP address
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+# alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 
 # Reload the shell
 alias reload="exec ${SHELL} -l"
