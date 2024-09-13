@@ -3,6 +3,10 @@ export CLICOLOR=true
 
 PATH="$PATH:$DOTFILES/bin"
 
+if [ -d "$HOME/bin" ]; then
+	PATH="$PATH:$HOME/bin"
+fi
+
 # fpath=($DOTFILES/functions $fpath)
 # autoload -U $DOTFILES/functions/*(:t)
 

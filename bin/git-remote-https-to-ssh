@@ -3,11 +3,11 @@
 # Description: Convert git remote URLs from HTTPS to SSH
 
 for remote in $(git remote); do
-  url=$(git remote get-url $remote)
-  if [[ $url == https://* ]]; then
-    new_url=$(echo $url | sed -e 's|https://|git@|' -e 's|/$||' -e 's|/|:|' -e 's|\.git$||')
-    new_url="${new_url}.git"
-    git remote set-url $remote $new_url
-    echo "Updated $remote to $new_url"
-  fi
+	url=$(git remote get-url $remote)
+	if [[ $url == https://* ]]; then
+		new_url=$(echo $url | sed -e 's|https://|git@|' -e 's|/$||' -e 's|/|:|' -e 's|\.git$||')
+		new_url="${new_url}.git"
+		git remote set-url $remote $new_url
+		echo "Updated $remote to $new_url"
+	fi
 done

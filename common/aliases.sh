@@ -31,6 +31,8 @@ alias cls='clear'
 # Reload the shell
 alias reload="exec ${SHELL} -l"
 
+alias priv="PROMPT='%F{cyan}dav%f@dev %F{cyan}%~%f $ '"
+
 # Get date and time
 alias datetime='date "+%Y-%m-%d %H:%M:%S"'
 
